@@ -13,8 +13,7 @@ export const Home = () => {
   const [onePagers, setOnePagers]: [OnePagerPublicData[], any] = React.useState(
     []
   );
-
-  const [searchTerm, setSearchTerm] = React.useState("e.x. facebook");
+  const [searchTerm, setSearchTerm] = React.useState('');
 
   const handleChange = event => { 
     setSearchTerm(event.target.value);
@@ -51,11 +50,11 @@ export const Home = () => {
             Welcome to One Pager Alpha!
           </Heading>
 
-          <Search onSearch={handleSearch}/>
+          <Search search={searchTerm} onSearch={handleSearch}/>
 
           <Divider />
 
-          <OnePagerLinks onePagers={onePagers} />
+          <OnePagerLinks onePagers={searchedOnePagers} />
         </Box>
       </Box>
     </Box>
@@ -92,7 +91,7 @@ const Search = props => {
     return (
       <div>
   <label htmlFor="search">Search Active OnePagers: </label>
-  <input id="search" type="text" onChange={props.onSearch} />
+  <input value={props.search} id="search" type="text" onChange={props.onSearch} />
    </div>
   ); 
 };
