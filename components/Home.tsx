@@ -13,12 +13,18 @@ export const Home = () => {
     []
   );
 
+// Create a react hook to update the search input 
+
+
   // React hook to load data on first render
   React.useEffect(() => {
     getAllPublicOnePagerData().then((result) => {
       setOnePagers(result);
     });
   }, []);
+
+  // Create a Search Handler Method to manage search Input
+
 
   return (
     <Box>
