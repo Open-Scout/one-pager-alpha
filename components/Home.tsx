@@ -61,7 +61,9 @@ const OnePagerLinks = ({ onePagers }: OnePagerLinksProps) => {
             <a>{onePagerData.companyName}</a>
           </Link>
           <Text margin='0'>{onePagerData.briefDescription}</Text>
+          <hr/>
         </Box>
+        
       ))}
     </>
   );
