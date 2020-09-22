@@ -6,12 +6,28 @@ import { Box, Heading, Text, Divider } from '@chakra-ui/core';
 import { Header } from './Header';
 import { getAllPublicOnePagerData } from '../data/dataService';
 import { OnePagerPublicData } from '../model/model';
+import { OnePager } from './OnePager';
 
 /** Renders the home component. */
 export const Home = () => {
   const [onePagers, setOnePagers]: [OnePagerPublicData[], any] = React.useState(
     []
   );
+
+  const [searchTerm, setSearchTerm] = React.useState("e.x. facebook");
+
+  const handleChange = event => { 
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearch = event => {
+    setSearchTerm(event.target.value);
+  };
+
+  const searchedOnePagers = onePagers.filter(OnePager => { 
+    return OnePager.companyName
+    .toLowerCase() .includes(searchTerm.toLowerCase());
+  });
 
   // React hook to load data on first render
   React.useEffect(() => {
@@ -35,9 +51,7 @@ export const Home = () => {
             Welcome to One Pager Alpha!
           </Heading>
 
-          <Heading as='h2' size='md'>
-            View active OnePagers
-          </Heading>
+          <Search onSearch={handleSearch}/>
 
           <Divider />
 
@@ -51,6 +65,7 @@ export const Home = () => {
 type OnePagerLinksProps = {
   onePagers: OnePagerPublicData[];
 };
+
 
 const OnePagerLinks = ({ onePagers }: OnePagerLinksProps) => {
   return (
@@ -67,4 +82,17 @@ const OnePagerLinks = ({ onePagers }: OnePagerLinksProps) => {
       ))}
     </>
   );
+};
+
+const Search = props => {
+  const [searchTerm, setSearchTerm] = React.useState('');
+  const handleChange = event => { setSearchTerm(event.target.value);
+  props.onSearch(event);
+  };
+    return (
+      <div>
+  <label htmlFor="search">Search Active OnePagers: </label>
+  <input id="search" type="text" onChange={props.onSearch} />
+   </div>
+  ); 
 };
