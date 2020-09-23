@@ -13,12 +13,18 @@ export const Home = () => {
     []
   );
 
+// Create a react hook to update the search input 
+
+
   // React hook to load data on first render
   React.useEffect(() => {
     getAllPublicOnePagerData().then((result) => {
       setOnePagers(result);
     });
   }, []);
+
+  // Create a Search Handler Method to manage search Input
+
 
   return (
     <Box>
@@ -32,7 +38,7 @@ export const Home = () => {
       <Box d='flex' justifyContent='center'>
         <Box w='xl'>
           <Heading as='h1' size='xl'>
-            Welcome to One Pager Alpha!
+            Hello, welcome to One Pager Alpha!
           </Heading>
 
           <Heading as='h2' size='md'>

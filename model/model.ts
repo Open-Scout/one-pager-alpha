@@ -3,6 +3,7 @@ export interface OnePagerPerson {
   name: string;
   title: string;
   description?: string;
+  companyOfInvestor?: string;
 }
 
 /** Public access one pager data fields. */

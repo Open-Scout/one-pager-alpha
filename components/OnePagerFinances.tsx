@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heading } from '@chakra-ui/core';
 
-import { OnePagerData } from '../model/model';
+import { OnePagerData, OnePagerPerson } from '../model/model';
 import { ContentCard } from './ContentCard';
 
 type OnePagerFinancesProps = {
@@ -31,6 +31,8 @@ export const OnePagerFinances = ({
       <SubHeading>
         Funding Goal: {formatFinanceNumber(onePagerData.fundraisingStageGoal)}
       </SubHeading>
+      {/*Create a sub-section to display investors. Do not display this section
+       if the company does not have investors */}
     </ContentCard>
   );
 };

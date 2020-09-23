@@ -40,7 +40,6 @@ const lendingClub: OnePagerData = {
   fundsRaisedInStage: 5000000,
   fundraisingDetails: 'Expand capabilities and accelerate customer growth',
   founders: [founders.lendingClub1, founders.lendingClub2],
-  investors: [investors.investor1],
 };
 
 const spotify: OnePagerData = {
